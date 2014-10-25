@@ -15,5 +15,5 @@ A little shell script to mute the camera on a rooted Samsung Galaxy S5.
 
 ----
 
-####### [raincoats](http://raincoats.cat/) 2014
-####### MIT licence
+[raincoats](http://raincoats.cat/) 2014
+hack the planet
