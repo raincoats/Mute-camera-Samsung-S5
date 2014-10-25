@@ -9,4 +9,5 @@ A little shell script to mute the camera on a rooted Samsung Galaxy S5.
 
 ### Usage
 `wget https://raw.githubusercontent.com/raincoats/Mute-camera-Samsung-S5/master/mute.sh -O- | sh`
-Or you can just copy and paste it in.
+
+(or you can just copy and paste it into an SSH session)
