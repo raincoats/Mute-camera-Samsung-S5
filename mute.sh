@@ -1,6 +1,9 @@
 #!/system/bin/sh
 
+# r00t
 su
+
+# this is where the sound files are
 cd /system/media/audio/ui/
 
 # mounting the fs read/write
