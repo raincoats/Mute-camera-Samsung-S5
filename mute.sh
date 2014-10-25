@@ -15,7 +15,10 @@ mv Camera_click_short.ogg Camera_click_short.ogg.backup
 mv Shutter.ogg Shutter.ogg.backup
 mv Shutter_multiple.ogg Shutter_multiple.ogg.backup
 
-# Camera_empty is an empty sound
+# This is where the magic happens.
+# Camera_empty.ogg is an empty sound, basically
+# here we're making each camera clicking noise
+# into a "shortcut" to Camera_empty.ogg.
 ln -s Camera_empty.ogg camera_click.ogg
 ln -s Camera_empty.ogg Camera_click_short.ogg
 ln -s Camera_empty.ogg Shutter.ogg
