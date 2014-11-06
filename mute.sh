@@ -1,6 +1,4 @@
-#!/system/bin/sh
-
-function silence_phone(){
+function raincoats(){
 
 	# mounting the fs read/write
 	mount -o remount,rw /system 
@@ -29,14 +27,4 @@ function silence_phone(){
 	mount -o remount,ro /system
 }
 
-
-# execution starts here
-
-if [ "$(id -u)" != "0" ]; then
-	echo 'Sorry, you have to run this as root.
-	Try typing "su" and then running this again.' 2>&1;
-else
-	silence_phone; 
-fi
-
-
+raincoats
