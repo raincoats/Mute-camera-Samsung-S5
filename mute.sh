@@ -1,29 +1,42 @@
 #!/system/bin/sh
 
-# r00t
-su
+function silence_phone(){
 
-# this is where the sound files are
-cd /system/media/audio/ui/
+	# mounting the fs read/write
+	mount -o remount,rw /system 
+	cd /system/media/audio/ui
 
-# mounting the fs read/write
-mount -o remount,rw /system
+	# This is where the magic happens!
+	# Camera_empty.ogg is an empty sound.
+	for sound in "camera_click.ogg" \
+                 "Camera_click_short.ogg" \
+                 "Shutter.ogg" \
+                 "Shutter_multiple.ogg" \
+                 "Camera_Timer.ogg" \
+                 "Camera_Timer_2sec.ogg" \
+                 "lens_flare_lock.ogg" \
+                 "lens_flare_unlock_silence.ogg" \
+                 "Auto_focus.ogg" \
+                 "Auto_focus_error.ogg";
+	do 
+		echo "mv $sound $sound.backup";
+		echo "ln -s Camera_empty.ogg $sound";
 
-# may as well back up the sounds
-mv camera_click.ogg camera_click.ogg.backup
-mv Camera_click_short.ogg Camera_click_short.ogg.backup
-mv Shutter.ogg Shutter.ogg.backup
-mv Shutter_multiple.ogg Shutter_multiple.ogg.backup
+	done
 
-# This is where the magic happens.
-# Camera_empty.ogg is an empty sound, basically
-# here we're making each camera clicking noise
-# into a "shortcut" to Camera_empty.ogg.
-ln -s Camera_empty.ogg camera_click.ogg
-ln -s Camera_empty.ogg Camera_click_short.ogg
-ln -s Camera_empty.ogg Shutter.ogg
-ln -s Camera_empty.ogg Shutter_multiple.ogg
+	# Making the fs read-only again.
+	# You can always `reboot now` instead if you like
+	mount -o remount,ro /system
+}
 
-# Making the fs read-only again.
-# You can always `reboot now` instead if you like
-mount -o remount,ro /system
+
+# execution starts here
+
+if [ "$(id -u)" != "0" ]; then
+	echo 'Sorry, you have to run this as root.
+	Try typing "su" and then running this again.' 2>&1;
+else
+	silence_phone; 
+fi
+
+
