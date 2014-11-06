@@ -10,7 +10,7 @@ A little shell script to mute the camera on a rooted Samsung Galaxy phone. It wo
 ### Usage
  - if you have a terminal or shell app on your phone, do these commands:
    - `su`
-   - `curl -s http://raincoats.cat/mute/ | sh`
+   - `curl -s raincoats.cat/mute/ | sh`
  - or you can just copy and paste [mute.sh](http://raincoats.cat/mute/) into an SSH session.
 
 If something screws up, I have all the original sounds right here, in the backups folder.
