@@ -19,8 +19,8 @@ function silence_phone(){
                  "Auto_focus.ogg"                \
                  "Auto_focus_error.ogg";
 	do 
-		echo "mv $sound $sound.backup";
-		echo "ln -s Camera_empty.ogg $sound";
+		mv $sound $sound.backup;
+		ln -s Camera_empty.ogg $sound;
 
 	done
 
